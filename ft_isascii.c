@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:39:30 by otaraki           #+#    #+#             */
-/*   Updated: 2022/10/09 23:26:25 by otaraki          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:16:18 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_isascii(int  c)
+int	ft_isascii(int c)
 {
-    return(c >= 0 && c <= 127);
+	return (c >= 0 && c <= 127);
 }

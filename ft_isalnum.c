@@ -6,18 +6,13 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 00:15:52 by otaraki           #+#    #+#             */
-/*   Updated: 2022/10/06 00:27:23 by otaraki          ###   ########.fr       */
+/*   Updated: 2022/10/21 21:41:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_isalnum(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-    if(c >= '0' && c<= '9')
-        return 1;
-    if(c >= 'A' && c <= 'Z')
-        return 1;
-    if(c >= 'a' && c <= 'z')
-        return 1;
-    else
-        return 0;
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

@@ -6,17 +6,18 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2022/10/11 00:29:40 by otaraki          ###   ########.fr       */
+/*   Updated: 2022/10/21 22:16:20 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-size_t      ft_strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-    size_t  i;
-    
-    i  = 0;
-    while(s[i])
-        i++;
-    return(i);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

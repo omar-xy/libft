@@ -6,98 +6,96 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 21:13:08 by otaraki           #+#    #+#             */
-/*   Updated: 2022/10/19 18:04:39 by otaraki          ###   ########.fr       */
+/*   Updated: 2022/11/03 22:31:09 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_word(char *s, char c)
+static int	count_word(char *s, char c)
 {
-    int wc;
-    int i;
+	int	wc;
+	int	i;
 
-    i = 0;
-    while (s[i] == c && s[i])
-        i++;
-    wc = 0;
-    while (s[i])
-    {
-        while (s[i] != c && s[i])
-            i++;
-        while (s[i] == c && s[i])
-            i++;
-        wc++;
-    }
-    return (wc);
+	i = 0;
+	while (s[i] == c && s[i])
+		i++;
+	wc = 0;
+	while (s[i])
+	{
+		while (s[i] != c && s[i])
+			i++;
+		while (s[i] == c && s[i])
+			i++;
+		wc++;
+	}
+	return (wc);
 }
 
-
-
-static size_t word_len(char *str, char del)
+static size_t	word_len(char *str, char del)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (str[i] && str[i] != del)
-        i++;
-    return i;
-   
+	i = 0;
+	while (str[i] && str[i] != del)
+		i++;
+	return (i);
 }
 
-/*******/
-
-
-static void ft_clear(char **buff)
+static void	ft_clear(char **buff)
 {
-    if (buff)
-    {
-        while (*buff)
-        {
-            free(*buff); 
-            buff++;
-        }
-    }
-    free(buff);
- }
-static char **alloc_for_words(char *s, char c, char **res)
-{
-    int wc;
-    int wl;
-    int i;
+	size_t	i;
 
-    i = 0;
-    while (s[i] == c && s[i])
-        i++;
-    wc = 0;
-    while (s[i])//i =0, s=abc_efg_ab
-    {
-        wl = word_len(&s[i], c);//3
-        res[wc] = ft_substr(s, i, wl);//wc[0]=abc
-        if(!res[wc])
-            return(ft_clear(res), NULL);
-        i += wl;
-        while (s[i] == c && s[i])
-            i++;
-        wc++;
-    }
-    res[wc] = NULL;
-    return (res);
+	i = 0;
+	if (buff != NULL)
+	{
+		while (buff[i])
+		{
+			free(buff[i]);
+			i++;
+		}
+	}
+	free(buff);
 }
-char **ft_split(char const *s, char c)
+
+static char	**alloc_for_words(char *s, char c, char **res)
 {
+	int	wc;
+	int	wl;
+	int	i;
 
-    size_t i;
-    char **res;
-    char *target;
+	i = 0;
+	while (s[i] == c && s[i])
+		i++;
+	wc = 0;
+	while (s[i])
+	{
+		wl = word_len(&s[i], c);
+		res[wc] = ft_substr(s, i, wl);
+		if (!res[wc])
+			return (ft_clear(res), NULL);
+		i += wl;
+		while (s[i] == c && s[i])
+			i++;
+		wc++;
+	}
+	res[wc] = NULL;
+	return (res);
+}
 
-    if (!s)
-        return (NULL);
-    target = (char *)s;
-    i = count_word(target, c);
-    res = (char **)ft_calloc((i + 1) , sizeof(char *));
-    if (!res)
-        return (NULL);
-    alloc_for_words(target, c, res);
-    return (res);
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	char	**res;
+	char	*target;
+
+	if (!s)
+		return (NULL);
+	target = (char *)s;
+	i = count_word(target, c);
+	res = (char **)ft_calloc((i + 1), sizeof(char *));
+	if (!res)
+		return (NULL);
+	alloc_for_words(target, c, res);
+	return (res);
 }

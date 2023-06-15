@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:52:33 by otaraki           #+#    #+#             */
-/*   Updated: 2022/10/09 23:32:07 by otaraki          ###   ########.fr       */
+/*   Updated: 2022/10/21 21:44:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_isprint(int  c)
+int	ft_isprint(int c)
 {
-     return( c >=32  && c <= 126);   
+	return (c >= 32 && c <= 126);
 }
